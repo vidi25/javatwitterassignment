@@ -69,13 +69,25 @@ public class TwitterOperations {
     }
 
     /**
+     * sorts Posts by date of creation to get posts newer to older.
+     * @param posts List of Post class
+     * @return List of Post class
+     */
+    public List<Post> sortPostsByDateNewerToOlder(List<Post> posts) {
+
+        posts.sort(Comparator.comparing(Post::getDateOfCreation));
+        return posts;
+
+    }
+
+    /**
      * sorts Posts by date of creation to get posts older to newer.
      * @param posts List of Post class
      * @return List of Post class
      */
-    public List<Post> sortPostsByDate(List<Post> posts) {
+    public List<Post> sortPostsByDateOlderToNewer(List<Post> posts) {
 
-        posts.sort(Comparator.comparing(Post::getDateOfCreation));
+        posts.sort(Comparator.comparing(Post::getDateOfCreation).reversed());
         return posts;
 
     }

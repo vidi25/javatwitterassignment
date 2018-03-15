@@ -18,7 +18,8 @@ public class TwitterApplication {
         CompletableFuture<List<Status>> tweets = twitterOperations.getTweetsOfAUser(user);
         Thread.sleep(5000);
         List<Post> postList = twitterOperations.createPosts(tweets);
-        System.out.println("Posts newer to older are = " + twitterOperations.sortPostsByDate(postList));
+        System.out.println("Posts newer to older are = " + twitterOperations.sortPostsByDateNewerToOlder(postList));
+        System.out.println("Posts older to newer are = " + twitterOperations.sortPostsByDateOlderToNewer(postList));
         System.out.println("\n\n\nPosts higher to lower by reTweet count = "
                 + twitterOperations.sortPostsByReTweetCount(postList));
         System.out.println("\n\n\nPosts higher to lower by like count are = "
